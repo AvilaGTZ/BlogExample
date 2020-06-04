@@ -1,0 +1,92 @@
+{%extends 'index.html'%}
+{% load staticfiles %}
+
+{%block title%} CONTACTO  {%endblock title%}
+
+{%block body%}
+    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('{%static 'images/hero_1.jpg'%}');">
+      <div class="container">
+        <div class="row same-height justify-content-center">
+          <div class="col-md-12 col-lg-10">
+            <div class="post-entry text-center">
+              <h1 class="mb-4">Contact Us</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 mb-5">
+
+            <form method="POST" class="p-5 bg-white">
+             {%csrf_token%}
+
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">First Name</label>
+                  {{ Form.name }}
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Last Name</label>
+                  {{ Form.lastName }}
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">Email</label>
+                  {{ Form.email }}
+                </div>
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="lname">Subject</label>
+                  {{ Form.topic }}
+                </div>
+              </div>
+
+            
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="message">Message</label> 
+                  {{ Form.message }}
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Send Message" class="btn btn-primary py-2 px-4 text-white">
+                </div>
+              </div>
+
+  
+            </form>
+          </div>
+          <div class="col-md-5">
+            
+            <div class="p-4 mb-3 bg-white">
+              <p class="mb-0 font-weight-bold">Address</p>
+              <p class="mb-4">{{Web.address}}</p>
+
+              <p class="mb-0 font-weight-bold">Phone</p>
+              <p class="mb-4"><a href="#">{{Web.phone}}</a></p>
+
+              <p class="mb-0 font-weight-bold">Email Address</p>
+              <p class="mb-0"><a href="#">{{Web.email}}</a></p>
+
+            </div>
+            
+            <div class="p-4 mb-3 bg-white">
+              <h3 class="h5 text-black mb-3">About us</h3>
+              <p>{{Web.aboutUs}}</p>
+              <p><a href="#" class="btn btn-primary px-4 py-2 text-white">Learn More</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+{%endblock body%}
+</html>
